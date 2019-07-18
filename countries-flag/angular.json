@@ -24,10 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node-modules/bootstrap/dist/css/bootstap.min.css"
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
