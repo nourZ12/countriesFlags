@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CountriesDetailsComponent } from './countries-details/countries-details.component';
+import { CountryComponent } from './country/country.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: CountryComponent},
+  {path: 'details', component: CountriesDetailsComponent, children: [
+    {path: ':alphaCode', component: CountriesDetailsComponent}
+  ]}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

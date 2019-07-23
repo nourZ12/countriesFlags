@@ -1,9 +1,11 @@
-<div class="col pt-5 pl-4" *ngFor='let country of countries'>
-  <div class="card style-card card-background" [ngStyle]="{'background-image':'url('+country.flag+')'}">
-    <div class="overlay">
-      <h3> {{country.name}} </h3>
-      <p>Code: {{country.alpha3Code}} <br>Capital: {{country.Capital}} <br>Region: {{country.region}}</p>
-      <button name="AlphaCode" value="AFG" class="btn btn-secondary">More Details</button>
+<div class="row style-row mr-0">
+  <div class="col pt-5 pl-4" *ngFor='let country of countries'>
+    <div class="card style-card card-background" [ngStyle]="{'background-image':'url('+country.flag+')'}">
+      <div class="overlay">
+        <h3> {{country.name}} </h3>
+        <p>Code: {{country.alpha3Code}} <br>Capital: {{country.Capital}} <br>Region: {{country.region}}</p>
+        <button class="btn btn-secondary" [routerLink]="'details/'+country.alpha3Code">More Details</button>
+      </div>
     </div>
   </div>
 </div>

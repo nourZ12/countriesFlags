@@ -1,0 +1,19 @@
+.card-style{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
+.row:hover{
+    background-color: lightgrey;
+}
+.row{
+    text-align: left;
+    margin-right: 0!important;
+    margin-left: 0!important;
+   
+}
+.col{
+    width: 50%;
+
+}

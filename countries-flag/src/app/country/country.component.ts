@@ -5,10 +5,12 @@ import { CountriesDataService } from './countries-data.service';
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  styleUrls: ['./country.component.css'],
+  providers: [CountriesDataService]
 })
 export class CountryComponent implements OnInit {
  @Input() countries: Country[];
+ @Input() alpha: string;
 
   constructor(private countriesData: CountriesDataService) { }
 

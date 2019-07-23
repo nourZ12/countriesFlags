@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CountryComponent } from './country/country.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CountriesDataService } from './country/countries-data.service';
+import { CountriesDetailsComponent } from './countries-details/countries-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountryComponent
+    CountryComponent,
+    CountriesDetailsComponent
   ],
   imports: [
     BrowserModule,
