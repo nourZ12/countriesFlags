@@ -10,7 +10,7 @@ export class CountryDetails {
     population: number;
     borders: string[];
     callingCodes: number[];
-    currencies: object[];
-    languages: object[];
+    currencies: object[][];
+    languages: object[][];
     latlng: number[];
 }

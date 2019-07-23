@@ -1,4 +1,4 @@
-<div class="card card-style">
+<div class="card card-style" >
   <img [src]='countries.flag' class="card-img-top" style="width: 100%; height: 100%;">
   <div class="card-body">
 
@@ -77,8 +77,47 @@
           <div class="col">
             <p>Borders:</p>
           </div>
-          <div class="col" *ngFor="let border of countries.borders">
+          <div class="col">
             <p>{{countries.borders}}</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col">
+            <p>Calling Codes:</p>
+          </div>
+          <div class="col" >
+            <p>{{countries.callingCodes}}</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col">
+            <p>Currencies:</p>
+          </div>
+          <div class="col" *ngFor="let currency of countries.currencies">
+            <p>Code: {{currency.code}}</p>
+            <p>Name: {{currency.name}}</p>
+            <p>Symbol: {{currency.symbol}}</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col">
+            <p>Languages:</p>
+          </div>
+          <div class="col" *ngFor="let lang of countries.languages">
+              <p>Name: {{lang.name}}</p>
+              <p>Native Name: {{lang.nativeName}}</p>
+            </div>
+      </div>
+
+      <div class="row">
+          <div class="col">
+            <p>Lat/Lng:</p>
+          </div>
+          <div class="col" >
+            <p>{{countries.latlng}}</p>
           </div>
       </div>
   </div>

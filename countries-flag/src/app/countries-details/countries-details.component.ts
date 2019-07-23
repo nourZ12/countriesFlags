@@ -22,7 +22,7 @@ export class CountriesDetailsComponent implements OnInit {
     console.log(this.apiURL);
     return this.getCountriesData()
     .subscribe(
-      data => this.countries = data
+      data => console.log(this.countries = data)
     );
   }
   getCountriesData() {
