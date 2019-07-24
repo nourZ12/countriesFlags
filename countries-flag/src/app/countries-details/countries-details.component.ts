@@ -10,23 +10,27 @@ import { Country } from '../country/country.model';
   styleUrls: ['./countries-details.component.css']
 })
 export class CountriesDetailsComponent implements OnInit {
-  @Output() countries: Country[];
-  urlA = this.router.url.split('/details/');
-  apiURL = 'https://restcountries.eu/rest/v2/alpha/' + this.urlA[1];
+  @Input() countries: Country[];
+  alphaCode: string;
+  apiURL = 'https://restcountries.eu/rest/v2/alpha';
 
 
-  alphaCode: number;
-  constructor(private route: ActivatedRoute,  private router: Router, private http: HttpClient) { }
-
-  ngOnInit() {
-    console.log(this.apiURL);
-    return this.getCountriesData()
-    .subscribe(
-      data => console.log(this.countries = data)
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
+    this.route.params.subscribe(
+      // tslint:disable-next-line: no-string-literal
+      (params: Params) => this.alphaCode = params['alphaCode']
     );
   }
+
+  ngOnInit() {
+    return this.getCountriesData()
+      .subscribe(
+        data => this.countries = data
+      );
+  }
   getCountriesData() {
-    return this.http.get<CountryDetails[]>(this.apiURL);
+    const url = `${this.apiURL}/${this.alphaCode}`;
+    return this.http.get<CountryDetails[]>(url);
   }
 
 }

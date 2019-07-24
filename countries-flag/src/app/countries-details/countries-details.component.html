@@ -1,5 +1,5 @@
-<div class="card card-style" >
-  <img [src]='countries.flag' class="card-img-top" style="width: 100%; height: 100%;">
+<div class="card card-style">
+  <img *ngIf="countries" [src]='countries.flag' class="card-img-top" style="width: 100%; height: 100%;">
   <div class="card-body">
 
     <div class="row">
@@ -7,7 +7,7 @@
         <p>Name:</p>
       </div>
       <div class="col">
-        <p>{{countries.name}}</p>
+        <p>{{countries?.name}}</p>
       </div>
     </div>
 
@@ -16,109 +16,112 @@
         <p>Native Name:</p>
       </div>
       <div class="col">
-        <p>{{countries.nativeName}}</p>
+        <p>{{countries?.nativeName}}</p>
       </div>
     </div>
 
     <div class="row">
-        <div class="col">
-          <p>Alpha Code:</p>
-        </div>
-        <div class="col">
-          <p>{{countries.alpha3Code}}</p>
-        </div>
+      <div class="col">
+        <p>Alpha Code:</p>
       </div>
+      <div class="col">
+        <p>{{countries?.alpha3Code}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Capital:</p>
-          </div>
-          <div class="col">
-            <p>{{countries.capital}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Capital:</p>
       </div>
+      <div class="col">
+        <p>{{countries?.capital}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Region:</p>
-          </div>
-          <div class="col">
-            <p>{{countries.region}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Region:</p>
       </div>
+      <div class="col">
+        <p>{{countries?.region}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Subregion:</p>
-          </div>
-          <div class="col">
-            <p>{{countries.subregion}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Subregion:</p>
       </div>
+      <div class="col">
+        <p>{{countries?.subregion}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Numeric Code:</p>
-          </div>
-          <div class="col">
-            <p>{{countries.numericCode}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Numeric Code:</p>
       </div>
+      <div class="col">
+        <p>{{countries?.numericCode}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Population:</p>
-          </div>
-          <div class="col">
-            <p>{{countries.population}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Population:</p>
       </div>
-      <div class="row">
-          <div class="col">
-            <p>Borders:</p>
-          </div>
-          <div class="col">
-            <p>{{countries.borders}}</p>
-          </div>
+      <div class="col">
+        <p>{{countries?.population}}</p>
       </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Calling Codes:</p>
-          </div>
-          <div class="col" >
-            <p>{{countries.callingCodes}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Borders:</p>
       </div>
+      <div class="col">
+        <div *ngIf="countries?.borders.length == 0; else elseBlock">
+          No Borders </div>
+        <ng-template #elseBlock>{{countries?.borders}}</ng-template>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Currencies:</p>
-          </div>
-          <div class="col" *ngFor="let currency of countries.currencies">
-            <p>Code: {{currency.code}}</p>
-            <p>Name: {{currency.name}}</p>
-            <p>Symbol: {{currency.symbol}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Calling Codes:</p>
       </div>
+      <div class="col">
+        <p>{{countries?.callingCodes}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Languages:</p>
-          </div>
-          <div class="col" *ngFor="let lang of countries.languages">
-              <p>Name: {{lang.name}}</p>
-              <p>Native Name: {{lang.nativeName}}</p>
-            </div>
+    <div class="row">
+      <div class="col">
+        <p>Currencies:</p>
       </div>
+      <div class="col" *ngFor="let currency of countries?.currencies">
+        <p>Code: {{currency.code}}</p>
+        <p>Name: {{currency.name}}</p>
+        <p>Symbol: {{currency.symbol}}</p>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="col">
-            <p>Lat/Lng:</p>
-          </div>
-          <div class="col" >
-            <p>{{countries.latlng}}</p>
-          </div>
+    <div class="row">
+      <div class="col">
+        <p>Languages:</p>
       </div>
+      <div class="col" *ngFor="let lang of countries?.languages">
+        <p>Name: {{lang.name}}</p>
+        <p>Native Name: {{lang.nativeName}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p>Lat/Lng:</p>
+      </div>
+      <div class="col">
+        <p>{{countries?.latlng}}</p>
+      </div>
+    </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
       <div class="overlay">
         <h3> {{country.name}} </h3>
         <p>Code: {{country.alpha3Code}} <br>Capital: {{country.Capital}} <br>Region: {{country.region}}</p>
-        <button class="btn btn-secondary" [routerLink]="'details/'+country.alpha3Code">More Details</button>
+        <button class="btn btn-secondary" [routerLink]="['details', country.alpha3Code ]">More Details</button>
       </div>
     </div>
   </div>

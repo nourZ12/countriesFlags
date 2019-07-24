@@ -6,9 +6,8 @@ import { CountryComponent } from './country/country.component';
 
 const routes: Routes = [
   {path: '', component: CountryComponent},
-  {path: 'details', component: CountriesDetailsComponent, children: [
-    {path: ':alphaCode', component: CountriesDetailsComponent}
-  ]}
+  {path: 'details/:alphaCode', component: CountriesDetailsComponent
+  }
 ];
 
 @NgModule({
