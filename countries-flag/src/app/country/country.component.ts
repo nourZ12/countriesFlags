@@ -1,24 +1,27 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Country } from './country.model';
-import { CountriesDataService } from './countries-data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css'],
-  providers: [CountriesDataService]
+  styleUrls: ['./country.component.css']
 })
 export class CountryComponent implements OnInit {
- @Input() countries: Country[];
- @Input() alpha: string;
+  @Input() countries: Country[];
+  @Input() alpha: string;
+  apiUrl = 'https://restcountries.eu/rest/v2/all?fields=flag;name;numericCode;capital;region;alpha3Code';
 
-  constructor(private countriesData: CountriesDataService) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    return this.countriesData.getCountriesData()
-    .subscribe(
-      data => this.countries = data
-    );
+    return this.getCountriesData()
+      .subscribe(
+        data => this.countries = data
+      );
+  }
+  getCountriesData() {
+    return this.http.get<Country[]>(this.apiUrl);
   }
 
 }
