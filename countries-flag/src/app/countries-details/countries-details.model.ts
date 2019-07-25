@@ -1,4 +1,4 @@
-export class CountryDetails {
+export interface CountryDetails {
     flag: string;
     name: string;
     nativeName: string;

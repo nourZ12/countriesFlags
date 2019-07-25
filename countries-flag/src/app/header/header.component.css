@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+  color: black;
+  border: 1px solid gainsboro;
+  padding: 2px 4px;
+  border-radius: 5px;
+  background-color: gainsboro;
+
+}
+
+a:hover {
+  background-color: silver;
+}

@@ -43,13 +43,13 @@ p {
 }
 
 p {
+  line-height: 95%;
   font-size: 1.3em;
 }
 
 button {
   position: relative;
   left: 30%;
-  bottom: 15px;
 }
 
 .card-background {

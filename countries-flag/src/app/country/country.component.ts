@@ -1,27 +1,38 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { Country } from './country.model';
 import { HttpClient } from '@angular/common/http';
+import { CountryService } from './country.service';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  styleUrls: ['./country.component.css'],
+  providers: [CountryService]
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class CountryComponent implements OnInit {
-  @Input() countries: Country[];
-  @Input() alpha: string;
-  apiUrl = 'https://restcountries.eu/rest/v2/all?fields=flag;name;numericCode;capital;region;alpha3Code';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private countryData: CountryService) { }
+  public static hi: string;
+  public loading = false;
+  @Input() countries: Country[];
 
   ngOnInit() {
-    return this.getCountriesData()
+    return this.countryData.getCountriesData()
       .subscribe(
-        data => this.countries = data
+        data => {
+          this.loading = true;
+
+          this.countries = data;
+          console.log(data);
+
+        }
       );
   }
-  getCountriesData() {
-    return this.http.get<Country[]>(this.apiUrl);
-  }
+
+
 
 }

@@ -5,8 +5,9 @@ import { CountryComponent } from './country/country.component';
 
 
 const routes: Routes = [
-  {path: '', component: CountryComponent},
-  {path: 'details/:alphaCode', component: CountriesDetailsComponent
+  { path: '', component: CountryComponent },
+  {
+    path: 'details', loadChildren: './countries-details/countries-details.module#CountriesModule'
   }
 ];
 

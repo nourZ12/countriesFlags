@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CountryDetails } from './countries-details.model';
-import { Country } from '../country/country.model';
+import { Constants } from '../shared/constants.component';
 
 @Component({
   selector: 'app-countries-details',
@@ -10,9 +10,9 @@ import { Country } from '../country/country.model';
   styleUrls: ['./countries-details.component.css']
 })
 export class CountriesDetailsComponent implements OnInit {
-  @Input() countries: Country[];
+  @Input() countries: CountryDetails;
   alphaCode: string;
-  apiURL = 'https://restcountries.eu/rest/v2/alpha';
+  apiURL = `${Constants.URL}/alpha`;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
@@ -30,7 +30,6 @@ export class CountriesDetailsComponent implements OnInit {
   }
   getCountriesData() {
     const url = `${this.apiURL}/${this.alphaCode}`;
-    return this.http.get<CountryDetails[]>(url);
+    return this.http.get<CountryDetails>(url);
   }
-
 }

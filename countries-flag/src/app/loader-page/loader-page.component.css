@@ -1,0 +1,30 @@
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader.fade {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+.loader span {
+  font-family: Russo one;
+  font-size: 2.5em;
+  top: 50%;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
