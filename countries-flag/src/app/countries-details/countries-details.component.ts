@@ -14,7 +14,6 @@ export class CountriesDetailsComponent implements OnInit {
   alphaCode: string;
   apiURL = `${Constants.URL}/alpha`;
 
-
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.route.params.subscribe(
       // tslint:disable-next-line: no-string-literal
@@ -23,7 +22,7 @@ export class CountriesDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    return this.getCountriesData()
+    this.getCountriesData()
       .subscribe(
         data => this.countries = data
       );
