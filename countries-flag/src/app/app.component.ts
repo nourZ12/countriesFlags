@@ -10,11 +10,8 @@ export class AppComponent implements OnInit {
   constructor(private country: CountryService) {
   }
   title = 'Countries';
-  loading: boolean;
 
   ngOnInit() {
-    this.loading = this.country.loading;
-    console.log(this.loading);
 
   }
 }

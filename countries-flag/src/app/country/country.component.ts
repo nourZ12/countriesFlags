@@ -9,28 +9,26 @@ import { CountryService } from './country.service';
   styleUrls: ['./country.component.css'],
   providers: [CountryService]
 })
-@Injectable({
-  providedIn: 'root'
-})
+
 export class CountryComponent implements OnInit {
 
-
-  constructor(private http: HttpClient, private countryData: CountryService) { }
-  public static hi: string;
-  public loading = false;
+  showSpinner = true;
   @Input() countries: Country[];
+  constructor(private http: HttpClient, private countryData: CountryService) { }
+
 
   ngOnInit() {
+
+    console.log('Done');
     return this.countryData.getCountriesData()
       .subscribe(
         data => {
-          this.loading = true;
-
           this.countries = data;
-          console.log(data);
-
+          this.showSpinner = false;
+          console.log(this.countries);
         }
       );
+
   }
 
 
