@@ -3,9 +3,8 @@ import { CountriesDetailsComponent } from './countries-details.component';
 import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
 import { CountriesRoutingModule } from './countries-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
-import { NgbPanelHeader, NgbPanelToggle, NgbPanelContent, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
     declarations: [
@@ -15,8 +14,7 @@ import { NgbPanelHeader, NgbPanelToggle, NgbPanelContent, NgbAccordionModule } f
     imports: [
         CommonModule,
         CountriesRoutingModule,
-        SharedModule,
-        NgbAccordionModule
+        SharedModule
 
     ]
 })

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CountriesDetailsComponent } from './countries-details/countries-details.component';
-import { CountryComponent } from './country/country.component';
+import { RouterModule, Routes } from '@angular/router';
+
 
 
 const routes: Routes = [
-  { path: '', component: CountryComponent },
+  { path: '', loadChildren: './country/country.module#CountryModule'},
   {
     path: 'details', loadChildren: './countries-details/countries-details.module#CountriesModule'
   }

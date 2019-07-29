@@ -12,9 +12,12 @@ import { Constants } from '../shared/constants.component';
 export class CountriesDetailsComponent implements OnInit {
   @Input() countries: CountryDetails;
   alphaCode: string;
+  showSpinner = true;
+  country ;
   apiURL = `${Constants.URL}/alpha`;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
+
     this.route.params.subscribe(
       // tslint:disable-next-line: no-string-literal
       (params: Params) => this.alphaCode = params['alphaCode']
@@ -22,9 +25,12 @@ export class CountriesDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.country = this.getCountriesData();
     this.getCountriesData()
       .subscribe(
-        data => this.countries = data
+        data => {this.countries = data;
+          
+          this.showSpinner = false; }
       );
   }
   getCountriesData() {
