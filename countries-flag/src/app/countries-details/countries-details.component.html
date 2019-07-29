@@ -1,132 +1,133 @@
 <app-loader *ngIf="showSpinner"></app-loader>
 <div>
-<app-header></app-header>
+  <app-header></app-header>
 
-<div class="card card-style">
-  <img *ngIf="(country | async) as countryFlag " [src]='countryFlag.flag' class="card-img-top" style="width: 100%; height: 100%;">
-  <div class="card-body">
+  <div class="card card-style">
+    <img *ngIf="(country | async) as countryFlag " [src]='countryFlag.flag' class="card-img-top"
+      style="width: 100%; height: 100%;">
+    <div class="card-body">
 
-    <div class="row">
-      <div class="col">
-        <p>Name:</p>
+      <div class="row">
+        <div class="col">
+          <p>Name:</p>
+        </div>
+        <div class="col">
+          <p>{{ (country | async)?.name }}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{ (country | async)?.name }}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Native Name:</p>
+      <div class="row">
+        <div class="col">
+          <p>Native Name:</p>
+        </div>
+        <div class="col">
+          <p>{{ (country | async)?.nativeName}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{ (country | async)?.nativeName}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Alpha Code:</p>
+      <div class="row">
+        <div class="col">
+          <p>Alpha Code:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.alpha3Code}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.alpha3Code}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Capital:</p>
+      <div class="row">
+        <div class="col">
+          <p>Capital:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.capital}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.capital}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Region:</p>
+      <div class="row">
+        <div class="col">
+          <p>Region:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.region}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.region}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Subregion:</p>
+      <div class="row">
+        <div class="col">
+          <p>Subregion:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.subregion}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.subregion}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Numeric Code:</p>
+      <div class="row">
+        <div class="col">
+          <p>Numeric Code:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.numericCode}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.numericCode}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Population:</p>
+      <div class="row">
+        <div class="col">
+          <p>Population:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.population}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.population}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Borders:</p>
+      <div class="row">
+        <div class="col">
+          <p>Borders:</p>
+        </div>
+        <div class="col">
+          <div *ngIf="(country | async)?.borders.length == 0; else elseBlock">
+            No Borders </div>
+          <ng-template #elseBlock>{{(country | async)?.borders}}</ng-template>
+        </div>
       </div>
-      <div class="col">
-        <div *ngIf="(country | async)?.borders.length == 0; else elseBlock">
-          No Borders </div>
-        <ng-template #elseBlock>{{(country | async)?.borders}}</ng-template>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Calling Codes:</p>
+      <div class="row">
+        <div class="col">
+          <p>Calling Codes:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.callingCodes}}</p>
+        </div>
       </div>
-      <div class="col">
-        <p>{{(country | async)?.callingCodes}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Currencies:</p>
+      <div class="row">
+        <div class="col">
+          <p>Currencies:</p>
+        </div>
+        <div class="col" *ngFor="let currency of (country | async)?.currencies">
+          <p>Code: {{(country | async)?.code}}</p>
+          <p>Name: {{(country | async)?.name}}</p>
+          <p>Symbol: {{(country | async)?.symbol}}</p>
+        </div>
       </div>
-      <div class="col" *ngFor="let currency of (country | async)?.currencies">
-        <p>Code: {{(country | async)?.code}}</p>
-        <p>Name: {{(country | async)?.name}}</p>
-        <p>Symbol: {{(country | async)?.symbol}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Languages:</p>
+      <div class="row">
+        <div class="col">
+          <p>Languages:</p>
+        </div>
+        <div class="col" *ngFor="let lang of (country | async)?.languages">
+          <p>Name: {{lang.name}}</p>
+          <p>Native Name: {{lang.nativeName}}</p>
+        </div>
       </div>
-      <div class="col" *ngFor="let lang of (country | async)?.languages">
-        <p>Name: {{lang.name}}</p>
-        <p>Native Name: {{lang.nativeName}}</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>Lat/Lng:</p>
-      </div>
-      <div class="col">
-        <p>{{(country | async)?.latlng}}</p>
+      <div class="row">
+        <div class="col">
+          <p>Lat/Lng:</p>
+        </div>
+        <div class="col">
+          <p>{{(country | async)?.latlng}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
